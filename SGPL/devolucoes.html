@@ -11,13 +11,33 @@
 </head>
  
 <body>
-    <div class="navbar">
-        <img src="assets/img/imagem-removebg-preview.png" alt=".">
-        <section>
-            <a href="historico.html">Histórico</a>
-            <a href="index.html">Sair</a>
-        </section>
-    </div>
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+            <img src="assets/img/imagem-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="nav-list">
+               <ul>
+                    <li class="nav-item"><a href="devolucoes.html" class="nav-link">Devoluções</a></li>
+                    <li class="nav-item"><a href="novaocorrencia.html" class="nav-link">Nova ocorrência</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link">Sair</a></li>
+                </ul>
+            </div>
+
+            <div class="mobile-menu-icon">
+                <button onclick="menuShow()"><img class="icon" src="assets/img/menu_white_36dp.svg" alt="menu"></button>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <ul>
+                <li class="nav-item">
+                    <a href="historico.html" class="nav-link">Histórico</a></li>
+                <li class="nav-item">
+                    <a href="novaocorrencia.html" class="nav-link">Nova ocorrência</a></li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Sair</a></li>
+            </ul>
+        </div>
     <h1>
         DEVOLUÇÕES
     </h1>
@@ -51,7 +71,7 @@
     <div class="card">
         <p><a href="008.html">12/09/2024 - Teclado quebrado</a></p>
     </div> <br>
- 
+    <script src="assets/js/script.js"></script>
 </body>
  
 </html>

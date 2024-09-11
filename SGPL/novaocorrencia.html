@@ -9,35 +9,45 @@
     <link rel="stylesheet" href="assets/css/001.css">
 </head>
 <body>
-    <div class="navbar">
-        <img src="assets/img/imagem-removebg-preview.png" alt=".">
-        <section>
-            <a href="historico.html">Histórico</a>
-            <a href="index.html">Sair</a>
-        </section>
-    </div>
- 
-    <div class="container">
-        <h1>OCORRÊNCIA</h1>
-        <h2>Teclado quebrado #001</h2>
-        <p class="rm-number">RM974568</p>
- 
-        <div class="details">
-            <p><strong>RM Professor :</strong> 987604</p>
-            <p><strong>Data :</strong> 09/09/2024 &nbsp;&nbsp;&nbsp; <strong>Período :</strong> Noturno</p>
-            <p><strong>Laboratório :</strong> 1 &nbsp;&nbsp;&nbsp; <strong>Andar :</strong> 2 &nbsp;&nbsp;&nbsp; <strong>Máquina :</strong> 009675</p>
+    <header>
+    <nav class="nav-bar">
+        <div class="logo">
+        <img src="assets/img/imagem-removebg-preview.png" alt="Logo">
         </div>
- 
-        <div>
-            <p class="descricao1"><strong>Descrição do problema:</strong></p>
-            <p>Teclado ao início da aula foi encontrado com as teclas desmontadas e o cabo de conexão rompido.</p>
+        <div class="nav-list">
+           <ul>
+                <li class="nav-item"><a href="devolucoes.html" class="nav-link">Devoluções</a></li>
+                <li class="nav-item"><a href="novaocorrencia.html" class="nav-link">Nova ocorrência</a></li>
+                <li class="nav-item"><a href="login.html" class="nav-link">Sair</a></li>
+            </ul>
         </div>
+
+    
+    </nav>
+    </header>
+    <form>
+        <div class="container">
+            <h1>OCORRÊNCIA</h1>
+            <h2><input type="text" name="ocorrencia" id="ocorrencia" placeholder="Nome do problema" ></h2>
+           
+            <div class="details">
+                <p><strong>RM Professor :</strong> <input type="text" name="rm-professor" id="rm-professor" ></p>
+                <p><strong>Data :</strong> <input type="date" name="data" id="data"> &nbsp;&nbsp;&nbsp; <strong>Período :</strong> <select name="periodo" id="periodo">
+                    <option value="Noturno">Noturno</option>
+                    <option value="Diurno">Diurno</option>
+                </select></p>
+                <p><strong>Laboratório :</strong> <input type="number" name="laboratorio" id="laboratorio" > &nbsp;&nbsp;&nbsp; <strong>Andar :</strong> <input type="number" name="andar" id="andar" > &nbsp;&nbsp;&nbsp; 
+                    <strong>Máquina :</strong> <input type="text" name="maquina" id="maquina" ></p>
+            </div>
+ 
+            <div>
+                <p><strong>Descrição do problema:</strong></p>
+                <textarea name="descricao1" id="descricao1" rows="10" cols="90"></textarea>
+              </div>
+    </form>
+</div>
+    <div class="btn-voltar">  
+    <a href="confirmar.html" >Voltar</a>
     </div>
-    <div class="card">
-            <p class="descricao"><strong>Descrição do problema:</strong></p>
-            <p>Teclado ao início da aula foi encontrado com as teclas desmontadas e o cabo de conexão rompido.</p>
-    </div>
-   
-    <a href="devolucoes.html" class="btn-voltar">Voltar</a>
 </body>
 </html>
