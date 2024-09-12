@@ -6,7 +6,7 @@
     <title>Nova ocorrência</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/imagem-removebg-preview.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/001.css">
+    <link rel="stylesheet" href="assets/css/nov.css">
 </head>
 <body>
     <header>
@@ -34,7 +34,8 @@
                 <p><strong>RM Professor :</strong> <input type="text" name="rm-professor" id="rm-professor" ></p>
                 <p><strong>Data :</strong> <input type="date" name="data" id="data"> &nbsp;&nbsp;&nbsp; <strong>Período :</strong> <select name="periodo" id="periodo">
                     <option value="Noturno">Noturno</option>
-                    <option value="Diurno">Diurno</option>
+                    <option value="Matutino">Matutino</option>
+                    <option value="Vespertino">Vespertino</option>
                 </select></p>
                 <p><strong>Laboratório :</strong> <input type="number" name="laboratorio" id="laboratorio" > &nbsp;&nbsp;&nbsp; <strong>Andar :</strong> <input type="number" name="andar" id="andar" > &nbsp;&nbsp;&nbsp; 
                     <strong>Máquina :</strong> <input type="text" name="maquina" id="maquina" ></p>
@@ -46,8 +47,38 @@
               </div>
     </form>
 </div>
-    <div class="btn-voltar">  
-    <a href="confirmar.html" >Voltar</a>
+    <div class="enviar">  
+    <a href="" >Enviar</a>
+
     </div>
+    <script>
+        function confirmarEnvio() {
+            const textarea = document.getElementById('descricao1').value;
+            if (textarea.trim() === '') {
+                alert('Por favor, preencha a descrição do problema.');
+                return;
+            }
+            // Confirmação de envio
+            if (confirm('Tem certeza que deseja enviar?')) {
+                document.getElementById('ocorrenciaForm').submit();
+            }
+        }
+ 
+        // Restaurar os dados do formulário quando a página for carregada
+        window.onload = function() {
+            const descricao = localStorage.getItem('descricao');
+            if (descricao) {
+                document.getElementById('descricao1').value = descricao;
+                localStorage.removeItem('descricao');
+            }
+        };
+ 
+        // Salvar dados no localStorage antes da navegação
+        window.addEventListener('beforeunload', function() {
+            const descricao = document.getElementById('descricao1').value;
+            localStorage.setItem('descricao', descricao);
+        });
+    </script>
+
 </body>
 </html>
