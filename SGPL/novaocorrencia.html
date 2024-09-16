@@ -17,7 +17,6 @@
         <div class="nav-list">
            <ul>
                 <li class="nav-item"><a href="devolucoes.html" class="nav-link">Devoluções</a></li>
-                <li class="nav-item"><a href="novaocorrencia.html" class="nav-link">Nova ocorrência</a></li>
                 <li class="nav-item"><a href="login.html" class="nav-link">Sair</a></li>
             </ul>
         </div>
@@ -25,59 +24,52 @@
     
     </nav>
     </header>
-    <form>
+    <form id="ocorrenciaForm">
         <div class="container">
             <h1>OCORRÊNCIA</h1>
             <h2><input type="text" name="ocorrencia" id="ocorrencia" placeholder="Nome do problema" ></h2>
            
             <div class="details">
-                <p><strong>RM Professor :</strong> <input type="text" name="rm-professor" id="rm-professor" ></p>
-                <p><strong>Data :</strong> <input type="date" name="data" id="data"> &nbsp;&nbsp;&nbsp; <strong>Período :</strong> <select name="periodo" id="periodo">
+                <p><strong>RM Professor :</strong> <input type="number" step="1" name="rm-professor" id="rm-professor" min="0" ></p>
+                <p><strong>Data :</strong> <input type="date" name="data" id="data" ></p>Período :</strong> <select name="periodo" id="periodo">
                     <option value="Noturno">Noturno</option>
                     <option value="Matutino">Matutino</option>
                     <option value="Vespertino">Vespertino</option>
                 </select></p>
-                <p><strong>Laboratório :</strong> <input type="number" name="laboratorio" id="laboratorio" > &nbsp;&nbsp;&nbsp; <strong>Andar :</strong> <input type="number" name="andar" id="andar" > &nbsp;&nbsp;&nbsp; 
-                    <strong>Máquina :</strong> <input type="text" name="maquina" id="maquina" ></p>
+                <p><strong>Laboratório :</strong> <input type="number" step="1" name="laboratorio" id="laboratorio" min="0" > &nbsp;&nbsp;&nbsp; <strong>Andar :</strong> <input type="number" step="1" name="andar" id="andar" min="0"> &nbsp;&nbsp;&nbsp; 
+                    <strong>Máquina :</strong> <input type="number" step="1" name="maquina" id="maquina" min="0" ></p>
             </div>
  
             <div>
                 <p><strong>Descrição do problema:</strong></p>
                 <textarea name="descricao1" id="descricao1" rows="10" cols="90"></textarea>
               </div>
+              <div>
+                <button type="button" onclick="confirmarEnvio()">Enviar</button>
+            </div>
     </form>
 </div>
-    <div class="enviar">  
-    <a href="" >Enviar</a>
-
-    </div>
+    
     <script>
         function confirmarEnvio() {
-            const textarea = document.getElementById('descricao1').value;
-            if (textarea.trim() === '') {
-                alert('Por favor, preencha a descrição do problema.');
+            const ocorrencia = document.getElementById('ocorrencia').value.trim();
+            const rmProfessor = document.getElementById('rm-professor').value.trim();
+            const data = document.getElementById('data').value.trim();
+            const periodo = document.getElementById('periodo').value.trim();
+            const laboratorio = document.getElementById('laboratorio').value.trim();
+            const andar = document.getElementById('andar').value.trim();
+            const maquina = document.getElementById('maquina').value.trim();
+            const descricao = document.getElementById('descricao1').value.trim();
+    
+            if (ocorrencia === '' || rmProfessor === '' || data === '' || periodo === '' || laboratorio === '' || andar === '' || maquina === '' || descricao === '') {
+                alert('Por favor, preencha todos os campos obrigatórios.');
                 return;
             }
-            // Confirmação de envio
+    
             if (confirm('Tem certeza que deseja enviar?')) {
                 document.getElementById('ocorrenciaForm').submit();
             }
         }
- 
-        // Restaurar os dados do formulário quando a página for carregada
-        window.onload = function() {
-            const descricao = localStorage.getItem('descricao');
-            if (descricao) {
-                document.getElementById('descricao1').value = descricao;
-                localStorage.removeItem('descricao');
-            }
-        };
- 
-        // Salvar dados no localStorage antes da navegação
-        window.addEventListener('beforeunload', function() {
-            const descricao = document.getElementById('descricao1').value;
-            localStorage.setItem('descricao', descricao);
-        });
     </script>
 
 </body>
