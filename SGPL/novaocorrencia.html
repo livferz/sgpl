@@ -31,15 +31,21 @@
            
             <div class="details">
                 <p><strong>RM Professor :</strong> <input type="number" step="1" name="rm-professor" id="rm-professor" min="0" ></p>
-                <p><strong>Data :</strong> <input type="date" name="data" id="data" ></p>Período :</strong> <select name="periodo" id="periodo">
+                <p><strong>Data :</strong> <input type="date" name="data" id="data" ></p>
+                <p><strong>Período :</strong> <select name="periodo" id="periodo">
                     <option value="Noturno">Noturno</option>
                     <option value="Matutino">Matutino</option>
                     <option value="Vespertino">Vespertino</option>
                 </select></p>
                 <p><strong>Laboratório :</strong> <input type="number" step="1" name="laboratorio" id="laboratorio" min="0" > &nbsp;&nbsp;&nbsp; <strong>Andar :</strong> <input type="number" step="1" name="andar" id="andar" min="0"> &nbsp;&nbsp;&nbsp; 
                     <strong>Máquina :</strong> <input type="number" step="1" name="maquina" id="maquina" min="0" ></p>
-            </div>
- 
+                    <p><strong>Prioridade :</strong> <select name="Prioridade" id="Prioridade">
+                        <option value="Urgente">Urgente</option>
+                        <option value="Matutino">Mediano</option>
+                        <option value="Vespertino">Não urgente</option>
+                    </select></p>
+                </div>
+           
             <div>
                 <p><strong>Descrição do problema:</strong></p>
                 <textarea name="descricao1" id="descricao1" rows="10" cols="90"></textarea>
@@ -66,9 +72,9 @@
                 return;
             }
     
-            if (confirm('Tem certeza que deseja enviar?')) {
-                document.getElementById('ocorrenciaForm').submit();
-            }
+            if (window.confirm('Tem certeza que deseja enviar?')) {
+        window.location.href = 'historico.html';
+    }
         }
     </script>
 
